@@ -1,37 +1,30 @@
 package org.trzcinska;
 
 
+import java.util.*;
+
 public class TodoList {
-    private String[] todos;
+    private ArrayList<String> todos;
 
     public TodoList() {
-
-        todos = new String[10];
-
+        todos = new ArrayList<>();
     }
+
     public void add(String task) {
-        for (int i = 0; i < todos.length; i++) {
-            if (todos[i] == null) {
-                todos[i] = task;
-                break;
-            }
-        }
+        todos.add(task);
     }
 
     public void print() {
-        for (int i = 0; i < todos.length; i++) {
-            if (todos[i] != null) {
-                System.out.println((i+1) + ". " + todos[i]);
+        for (int i = 0; i < todos.size(); i++) {
+            if (todos.get(i) != null) {
+                System.out.println((i + 1) + ". " + todos.get(i));
             }
         }
     }
 
     public void remove(int number) {
-        for (int i = 0; i < todos.length; i++) {
-            if (i == number - 1 && todos[i] != null) {
-                todos[i] = null;
-                break;
-            }
+        if (todos.get(number) != null) {
+            todos.remove(number);
         }
     }
 
